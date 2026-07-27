@@ -4,8 +4,8 @@ import { tanstackRouter } from "@tanstack/router-plugin/vite";
 import tailwindcss from "@tailwindcss/vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
-// SPA build for GitHub Pages. The base path is set via VITE_BASE at build time
-// (the GH Actions workflow passes /<repo-name>/). Locally it defaults to "/".
+// SPA build for GitHub Pages. The custom domain serves the app from the root,
+// so the deploy workflow passes VITE_BASE="/". Locally it also defaults to "/".
 export default defineConfig(({ mode }) => ({
   base: process.env.VITE_BASE ?? "/",
   plugins: [

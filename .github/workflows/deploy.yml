@@ -24,20 +24,9 @@ jobs:
           bun-version: latest
       - name: Install dependencies
         run: bun install --frozen-lockfile
-      - name: Resolve base path
-        id: base
-        run: |
-          # If repo is <user>.github.io, deploy at root "/"; otherwise at "/<repo>/"
-          REPO_NAME="${GITHUB_REPOSITORY#*/}"
-          OWNER_NAME="${GITHUB_REPOSITORY%/*}"
-          if [ "$REPO_NAME" = "${OWNER_NAME}.github.io" ]; then
-            echo "base=/" >> "$GITHUB_OUTPUT"
-          else
-            echo "base=/${REPO_NAME}/" >> "$GITHUB_OUTPUT"
-          fi
       - name: Build
         env:
-          VITE_BASE: ${{ steps.base.outputs.base }}
+          VITE_BASE: /
         run: bun run build
       - name: Copy 404 fallback
         run: cp dist/index.html dist/404.html || true
