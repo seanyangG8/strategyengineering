@@ -711,6 +711,118 @@ function EmailFlowDiagram({ play }: { play: boolean }) {
   );
 }
 
+// Animated Logistics GTM — three product lanes moving through four GTM stages
+const logisticsLanes = [
+  { label: "PROD 01", y: 32 },
+  { label: "PROD 02", y: 52 },
+  { label: "PROD 03", y: 72 },
+];
+
+const gtmStages = [
+  { label: "ICP", x: 40 },
+  { label: "OUTBD", x: 56 },
+  { label: "SQL", x: 72 },
+  { label: "CLOSED", x: 88 },
+];
+
+function LogisticsGtmDiagram({ play }: { play: boolean }) {
+  return (
+    <div className="relative w-full h-full">
+      <div className="absolute inset-6 bg-primary/[0.08] blur-3xl rounded-full" />
+      <svg viewBox="0 0 100 100" className="relative w-full h-full">
+        <defs>
+          <radialGradient id="gtmGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor={PRIMARY} stopOpacity="0.6" />
+            <stop offset="100%" stopColor={PRIMARY} stopOpacity="0" />
+          </radialGradient>
+        </defs>
+
+        {/* Lane pills on left */}
+        {logisticsLanes.map((lane, i) => (
+          <g
+            key={lane.label}
+            style={{
+              opacity: play ? 1 : 0,
+              transform: play ? "translateX(0)" : "translateX(-6px)",
+              transition: `opacity 380ms ease-out ${150 + i * 120}ms, transform 500ms cubic-bezier(0.22,1,0.36,1) ${150 + i * 120}ms`,
+            }}
+          >
+            <rect x="2" y={lane.y - 4} width="22" height="8" rx="4" fill="#0d0d0d" stroke={PRIMARY} strokeWidth="0.5" opacity="0.95" />
+            <text x="13" y={lane.y + 1.2} textAnchor="middle" fontSize="2.6" fill="#fff" opacity="0.9">{lane.label}</text>
+          </g>
+        ))}
+
+        {/* Stage column headers */}
+        {gtmStages.map((stage, j) => (
+          <text
+            key={stage.label}
+            x={stage.x}
+            y="20"
+            textAnchor="middle"
+            fontSize="2.6"
+            fill={PRIMARY}
+            fontWeight="600"
+            letterSpacing="0.2"
+            style={{
+              opacity: play ? 1 : 0,
+              transition: `opacity 350ms ease-out ${350 + j * 80}ms`,
+            }}
+          >
+            {stage.label}
+          </text>
+        ))}
+
+        {/* Track lines from pill edge to last stage */}
+        {logisticsLanes.map((lane, i) => (
+          <line
+            key={`track-${i}`}
+            x1="24"
+            y1={lane.y}
+            x2="96"
+            y2={lane.y}
+            stroke={PRIMARY}
+            strokeOpacity="0.2"
+            strokeWidth="0.4"
+            strokeDasharray="80"
+            strokeDashoffset={play ? 0 : 80}
+            style={{ transition: `stroke-dashoffset 400ms ease-out 500ms` }}
+          />
+        ))}
+
+        {/* Stage nodes at each lane × stage intersection */}
+        {logisticsLanes.map((lane, i) =>
+          gtmStages.map((stage, j) => (
+            <circle
+              key={`node-${i}-${j}`}
+              cx={stage.x}
+              cy={lane.y}
+              r={play ? 3.5 : 0}
+              fill={PRIMARY}
+              fillOpacity={j === gtmStages.length - 1 ? 1 : 0.55}
+              style={{
+                transition: `r 500ms cubic-bezier(0.34,1.56,0.64,1) ${700 + i * 400 + j * 120}ms`,
+              }}
+            />
+          ))
+        )}
+
+        {/* Footer text */}
+        <text
+          x="50"
+          y="92"
+          textAnchor="middle"
+          fontSize="2.6"
+          fill="#ffffff80"
+          letterSpacing="0.4"
+          style={{ opacity: play ? 1 : 0, transition: "opacity 400ms 2000ms" }}
+        >
+          PIPELINE BUILT · 3 PRODUCTS
+        </text>
+      </svg>
+    </div>
+  );
+}
+
 // Animated Omnichannel — five channels converge into a single unified inbox
 function OmnichannelDiagram({ play }: { play: boolean }) {
   const channels = [
@@ -918,6 +1030,13 @@ const slides: Slide[] = [
     body: "Engineered a single chat platform consolidating WhatsApp, Instagram, Messenger, email, and SMS into one agent workspace — with shared context, SLA tracking, and AI-suggested replies across every channel.",
     timeline: "Project Timeline: 4 Months",
     visual: (play) => <OmnichannelDiagram play={play} />,
+  },
+  {
+    title: "B2B Logistics",
+    headline: "3 Products to Market",
+    body: "Defined ICP segments and buyer personas for three distinct logistics products, built outbound playbooks from scratch, and generated qualified pipeline — taking three offerings from zero market presence to active commercial motion.",
+    timeline: "Project Timeline: 4 Months",
+    visual: (play) => <LogisticsGtmDiagram play={play} />,
   },
 ];
 

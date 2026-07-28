@@ -36,7 +36,7 @@ const orgJsonLd = JSON.stringify({
   name: "Strategy Engineering",
   url: "https://strategyengineering.co",
   description:
-    "Engineering your success through process improvement, automation & AI, strategy, and sustainability.",
+    "Engineering your success through process improvement, automation & AI, strategy, sustainability, and go-to-market.",
   email: "contact@strategyengineering.co",
   areaServed: "Global",
   sameAs: ["https://www.linkedin.com/company/strategy-engineering-co"],
@@ -48,6 +48,7 @@ const orgJsonLd = JSON.stringify({
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Automation & AI" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Strategy & Transformation" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Sustainability & Impact" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Go-to-Market" } },
     ],
   },
 });
@@ -63,7 +64,7 @@ function RootComponent() {
       <FontProvider>
         <Helmet>
           <title>Strategy Engineering</title>
-          <meta name="description" content="Engineering your success through process improvement, automation & AI, strategy, and sustainability." />
+          <meta name="description" content="Engineering your success through process improvement, automation & AI, strategy, sustainability, and go-to-market." />
           <meta property="og:title" content="Strategy Engineering" />
           <meta property="og:description" content="Your Ambition. Our Expertise." />
           <meta property="og:type" content="website" />

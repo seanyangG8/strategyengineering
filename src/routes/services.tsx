@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Helmet } from "react-helmet-async";
 import { PageHero } from "@/components/site/PageHero";
-import { Workflow, Cpu, Compass, Leaf, ArrowUpRight } from "lucide-react";
+import { Workflow, Cpu, Compass, Leaf, Target, ArrowUpRight } from "lucide-react";
 import heroServices from "@/assets/hero-services.webp";
 import { useEffect, useState } from "react";
 import { Reveal } from "@/components/motion/Reveal";
@@ -96,6 +96,27 @@ const services = [
       { v: "3 yrs", l: "To net-zero pilot" },
     ],
     closing: "Sustainability done well is good business. We help you prove it.",
+  },
+  {
+    icon: Target,
+    number: "05",
+    slug: "gtm",
+    title: "Go-to-Market",
+    tagline: "System first. Revenue follows.",
+    intro: "We help B2B companies engineer the systems that turn a product into a pipeline — ICP definition, CRM architecture, outbound motion, and the measurement layer that makes it all visible and improvable.",
+    bullets: [
+      { h: "ICP and channel architecture", b: "Define who you're selling to, how you reach them, and what converts — before spending on acquisition." },
+      { h: "CRM build and instrumentation", b: "Clean pipeline stages, deal definitions, lead source attribution, and SLA tracking built into the system from day one." },
+      { h: "Revenue operations", b: "Align marketing, sales, and customer success around shared metrics, handoff criteria, and a single source of pipeline truth." },
+      { h: "Outbound and sales process", b: "Qualification frameworks, outreach cadences, discovery scripts, and follow-up architecture — tested and iterable." },
+      { h: "GTM diagnostics", b: "Audit the existing funnel, find the conversion leaks, and prioritise the highest-leverage fixes before scaling spend." },
+    ],
+    outcomes: [
+      { v: "3", l: "Products launched" },
+      { v: "↓ 42%", l: "Sales cycle" },
+      { v: "6 wks", l: "To first pipeline" },
+    ],
+    closing: "GTM done badly is expensive. We engineer the system first so every dollar you put into growth compounds rather than leaks.",
   },
 ];
 
@@ -211,7 +232,7 @@ function Services() {
     <main>
       <Helmet>
         <title>Services — Strategy Engineering</title>
-        <meta name="description" content="Process improvement, agentic AI & automation, strategy & transformation, sustainability & impact." />
+        <meta name="description" content="Process improvement, agentic AI & automation, strategy & transformation, sustainability & impact, and go-to-market systems." />
         <meta property="og:title" content="Services — Strategy Engineering" />
         <meta property="og:description" content="Transforming businesses, one solution at a time." />
         <meta property="og:image" content={heroServices} />

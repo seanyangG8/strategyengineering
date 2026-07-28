@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Helmet } from "react-helmet-async";
 import { Header } from "@/components/site/Header";
-import { ArrowUpRight, Workflow, Cpu, Compass, Leaf } from "lucide-react";
+import { ArrowUpRight, Workflow, Cpu, Compass, Leaf, Target } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import heroImg from "@/assets/hero-seedling.webp";
 import { AchievementsCarousel } from "@/components/site/AchievementsCarousel";
@@ -44,6 +44,13 @@ const services = [
     title: "Sustainability & Impact",
     desc: "ESG reporting, carbon roadmaps, and operating models that turn sustainability into advantage.",
     tags: ["ESG", "Net Zero", "Circularity"],
+  },
+  {
+    icon: Target,
+    number: "05",
+    title: "Go-to-Market",
+    desc: "GTM systems, CRM architecture, RevOps, and sales motions that turn products into measurable pipeline.",
+    tags: ["RevOps", "CRM", "Sales Ops"],
   },
 ];
 
@@ -260,7 +267,7 @@ function Index() {
               </h2>
             </div>
             <p className="text-muted-foreground max-w-md leading-relaxed">
-              Four disciplines, one engineering mindset — focused on precision, efficiency, and outcomes that compound.
+              One engineering mindset — applied across process, automation, strategy, sustainability, and growth.
             </p>
           </Reveal>
 

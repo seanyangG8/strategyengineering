@@ -66,6 +66,7 @@ export function Footer() {
             <li><Link to="/services" hash="service-02" className="hover:text-primary transition-colors story-link">Automation & AI</Link></li>
             <li><Link to="/services" hash="service-03" className="hover:text-primary transition-colors story-link">Strategy & Transformation</Link></li>
             <li><Link to="/services" hash="service-04" className="hover:text-primary transition-colors story-link">Sustainability & Impact</Link></li>
+            <li><Link to="/services" hash="service-05" className="hover:text-primary transition-colors story-link">Go-to-Market</Link></li>
           </ul>
           <a
             href="https://www.linkedin.com/company/strategy-engineering-co"
