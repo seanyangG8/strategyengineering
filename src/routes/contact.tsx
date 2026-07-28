@@ -19,6 +19,7 @@ const nextSteps = [
 ];
 
 const CONTACT_EMAIL = "contact@strategyengineering.co";
+const FORM_ENDPOINT = `https://formsubmit.co/ajax/${CONTACT_EMAIL}`;
 
 const composeUrl = (subject: string, body = "") => {
   const params = new URLSearchParams({
@@ -35,6 +36,7 @@ type FieldErrors = { name?: string; email?: string; message?: string };
 
 function Contact() {
   const [submitting, setSubmitting] = useState(false);
+  const [sent, setSent] = useState(false);
   const [interest, setInterest] = useState("");
   const [message, setMessage] = useState("");
   const [name, setName] = useState("");
@@ -80,7 +82,7 @@ function Contact() {
     }
   };
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const validationErrors = validate({ name, email, message });
     setErrors(validationErrors);
@@ -90,19 +92,28 @@ function Contact() {
       return;
     }
     setSubmitting(true);
-    const emailBody = [
-      `Name: ${name.trim()}`,
-      `Email: ${email.trim()}`,
-      website.trim() ? `Company website: ${website.trim()}` : null,
-      interest ? `Interest: ${interest}` : null,
-      "",
-      message.trim(),
-    ].filter(Boolean).join("\n");
-    const opened = window.open(composeUrl("New Strategy Engineering enquiry", emailBody), "_blank", "noopener,noreferrer");
-    if (!opened) {
-      window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("New Strategy Engineering enquiry")}&body=${encodeURIComponent(emailBody)}`;
-    }
-    setTimeout(() => {
+
+    try {
+      const response = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          _subject: "New Strategy Engineering enquiry",
+          _template: "table",
+          _captcha: "false",
+          name: name.trim(),
+          email: email.trim(),
+          website: website.trim(),
+          interest: interest || "Not specified",
+          message: message.trim(),
+        }),
+      });
+
+      if (!response.ok) throw new Error("Form submission failed");
+
       setSubmitting(false);
       (e.target as HTMLFormElement).reset();
       setName("");
@@ -112,8 +123,13 @@ function Contact() {
       setMessage("");
       setErrors({});
       setTouched({});
-      toast.success("Email draft opened — please send it from your mail app.");
-    }, 700);
+      setSent(true);
+      toast.success("Message sent — we'll be in touch within one business day.");
+      setTimeout(() => setSent(false), 6000);
+    } catch {
+      setSubmitting(false);
+      toast.error(`We couldn't send the form. Please email ${CONTACT_EMAIL}.`);
+    }
   };
 
   return (
@@ -221,7 +237,23 @@ function Contact() {
             <p className="text-muted-foreground mb-10">We believe in understanding your unique needs before taking the next step.</p>
 
             <div className="relative">
-              <form onSubmit={onSubmit} noValidate className="space-y-2 transition-opacity duration-300">
+              {/* Success overlay */}
+              <div
+                className={`absolute inset-0 z-10 flex flex-col items-center justify-center text-center bg-surface/95 backdrop-blur-sm rounded-2xl transition-all duration-500 ${
+                  sent ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+                }`}
+              >
+                {sent && (
+                  <svg viewBox="0 0 80 80" className="w-20 h-20 mb-6">
+                    <circle cx="40" cy="40" r="36" fill="none" stroke="var(--primary)" strokeWidth="2" className="circle-path" />
+                    <path d="M26 41 L36 51 L55 30" fill="none" stroke="var(--primary)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="check-path" />
+                  </svg>
+                )}
+                <h3 className="font-display text-2xl font-medium tracking-tight mb-2">Message sent.</h3>
+                <p className="text-sm text-muted-foreground max-w-xs">We'll be in touch within one business day.</p>
+              </div>
+
+              <form onSubmit={onSubmit} noValidate className={`space-y-2 transition-opacity duration-300 ${sent ? "opacity-30" : "opacity-100"}`}>
                 <div className={`float-field ${touched.name && errors.name ? "field-error" : ""}`}>
                   <input
                     id="contact-name"
@@ -331,6 +363,7 @@ function Contact() {
                   >
                     {submitting ? "Sending…" : "Send message"}
                     {submitting ? null : <ArrowUpRight className="size-4 group-hover:rotate-45 transition-transform" />}
+                    {sent && <Check className="size-4" />}
                   </MagneticButton>
                 </div>
               </form>
