@@ -161,7 +161,7 @@ function Contact() {
             <div className="mb-12">
               <p className="eyebrow text-cream-foreground/60 mb-3">// FOLLOW</p>
               <a
-                href="https://www.linkedin.com/company/strategy-engineering-co"
+                href="https://www.linkedin.com/company/strategy-engineering/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Strategy Engineering on LinkedIn (opens in new tab)"

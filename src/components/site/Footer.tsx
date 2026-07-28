@@ -69,7 +69,7 @@ export function Footer() {
             <li><Link to="/services" hash="service-05" className="hover:text-primary transition-colors story-link">GTM Engineering</Link></li>
           </ul>
           <a
-            href="https://www.linkedin.com/company/strategy-engineering-co"
+            href="https://www.linkedin.com/company/strategy-engineering/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Strategy Engineering on LinkedIn (opens in new tab)"

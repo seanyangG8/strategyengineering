@@ -39,7 +39,7 @@ const orgJsonLd = JSON.stringify({
     "Engineering your success through process improvement, automation & AI, strategy, sustainability, and GTM engineering.",
   email: "contact@strategyengineering.co",
   areaServed: "Global",
-  sameAs: ["https://www.linkedin.com/company/strategy-engineering-co"],
+  sameAs: ["https://www.linkedin.com/company/strategy-engineering/"],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Services",

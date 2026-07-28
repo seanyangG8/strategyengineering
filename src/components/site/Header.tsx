@@ -65,7 +65,7 @@ export function Header() {
             </Link>
           ))}
           <a
-            href="https://www.linkedin.com/"
+            href="https://www.linkedin.com/company/strategy-engineering/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn (opens in new tab)"
@@ -107,7 +107,7 @@ export function Header() {
               <FontToggle />
               <ThemeToggle />
               <a
-                href="https://www.linkedin.com/"
+                href="https://www.linkedin.com/company/strategy-engineering/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn (opens in new tab)"
