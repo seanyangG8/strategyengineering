@@ -1,8 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Linkedin, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
-import { ThemeToggle } from "@/components/theme/ThemeToggle";
-import { FontToggle } from "@/components/theme/FontToggle";
 
 const links = [
   { to: "/" as const, label: "Home" },
@@ -73,8 +71,6 @@ export function Header() {
           >
             <Linkedin className="size-[17px]" />
           </a>
-          <FontToggle />
-          <ThemeToggle />
         </nav>
 
         <div className="md:hidden flex items-center gap-2">
@@ -104,8 +100,6 @@ export function Header() {
               </Link>
             ))}
             <div className="flex items-center gap-3 pt-4 border-t border-white/10">
-              <FontToggle />
-              <ThemeToggle />
               <a
                 href="https://www.linkedin.com/company/strategy-engineering/"
                 target="_blank"

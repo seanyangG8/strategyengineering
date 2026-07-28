@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+import { createContext, useContext, useEffect, type ReactNode } from "react";
 
 export const THEMES = ["bronze", "midnight", "forest", "mint", "lime", "plum", "crimson", "mono"] as const;
 export type Theme = (typeof THEMES)[number];
@@ -20,27 +20,21 @@ type Ctx = { theme: Theme; setTheme: (t: Theme) => void; cycle: () => void };
 const ThemeContext = createContext<Ctx | null>(null);
 
 function getInitial(): Theme {
-  if (typeof document === "undefined") return "bronze";
-  const attr = document.documentElement.getAttribute("data-theme") as Theme | null;
-  if (attr && (THEMES as readonly string[]).includes(attr)) return attr;
   return "bronze";
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>(() => getInitial());
+  const theme = getInitial();
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
     try {
-      localStorage.setItem(STORAGE_KEY, theme);
+      localStorage.removeItem(STORAGE_KEY);
     } catch {}
-  }, [theme]);
+  }, []);
 
-  const setTheme = (t: Theme) => setThemeState(t);
-  const cycle = () => {
-    const i = THEMES.indexOf(theme);
-    setThemeState(THEMES[(i + 1) % THEMES.length]);
-  };
+  const setTheme = () => {};
+  const cycle = () => {};
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme, cycle }}>{children}</ThemeContext.Provider>
@@ -54,4 +48,4 @@ export function useTheme() {
 }
 
 // Inline script to set theme before hydration — prevents FOUC
-export const themeBootstrapScript = `(function(){try{var t=localStorage.getItem('${STORAGE_KEY}');var v=['bronze','midnight','forest','mint','lime','plum','crimson','mono'];if(t&&v.indexOf(t)!==-1){document.documentElement.setAttribute('data-theme',t);}else{document.documentElement.setAttribute('data-theme','bronze');}}catch(e){document.documentElement.setAttribute('data-theme','bronze');}})();`;
+export const themeBootstrapScript = `(function(){try{localStorage.removeItem('${STORAGE_KEY}');document.documentElement.setAttribute('data-theme','bronze');}catch(e){document.documentElement.setAttribute('data-theme','bronze');}})();`;

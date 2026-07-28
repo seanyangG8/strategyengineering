@@ -32,8 +32,8 @@
   --color-surface-foreground: var(--surface-foreground);
   --color-cream: var(--cream);
   --color-cream-foreground: var(--cream-foreground);
-  --font-sans: "Inter", system-ui, sans-serif;
-  --font-display: "Fraunces", "Times New Roman", serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
