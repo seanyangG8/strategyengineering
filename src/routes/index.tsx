@@ -58,7 +58,7 @@ const trustedBy = ["FORTUNE 500 FMCG", "UK HOME & LIVING", "NATIONAL ENERGY", "F
 
 const stats = [
   { value: 12, suffix: "+", label: "Transformations delivered", spark: [3, 5, 4, 7, 6, 9, 12] },
-  { value: 40, suffix: "M+", prefix: "$", label: "Operational savings", spark: [2, 6, 9, 14, 22, 31, 40] },
+  { value: 2, suffix: "M", prefix: "$", label: "Operational savings", spark: [0.2, 0.4, 0.7, 1, 1.3, 1.7, 2] },
   { value: 98, suffix: "%", label: "Time saved on automated workflows", spark: [10, 25, 45, 60, 78, 90, 98] },
   { value: 4, suffix: "", label: "Industries served", spark: [1, 1, 2, 2, 3, 3, 4] },
 ];
