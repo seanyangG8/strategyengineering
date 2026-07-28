@@ -186,7 +186,7 @@ function Index() {
           </div>
         </div>
 
-        {/* Scroll indicator — kept off the hero copy so it does not overlap at shorter widths/heights */}
+        {/* Scroll indicator — hidden on compact screens to avoid hero/trusted-by overlap */}
         <button
           type="button"
           aria-label="Scroll to next section"
@@ -197,7 +197,7 @@ function Index() {
             else if (target) target.scrollIntoView({ behavior: "smooth" });
             else window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
           }}
-          className="hidden md:flex absolute right-8 lg:right-12 bottom-28 z-10 flex-col items-center gap-2 text-white/55 hover:text-primary transition-colors animate-fade-up-delay-3 group rounded-full"
+          className="hidden lg:flex [@media(max-height:780px)]:hidden absolute left-1/2 -translate-x-1/2 bottom-28 z-10 flex-col items-center gap-2 text-white/55 hover:text-primary transition-colors animate-fade-up-delay-3 group rounded-full"
         >
           <span className="font-mono text-[10px] tracking-[0.3em] uppercase">Scroll</span>
           <span className="relative block w-[22px] h-[36px] rounded-full border border-white/30 group-hover:border-primary/70 transition-colors">
