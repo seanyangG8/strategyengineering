@@ -21,7 +21,7 @@ import {
   LabelList,
 } from "recharts";
 
-// Theme-aware chart colors — pulled from CSS variables at render time
+// Theme-aware chart colors pulled from CSS variables at render time
 const PRIMARY = "var(--primary)";
 const PRIMARY_PALETTE = [
   "color-mix(in oklab, var(--primary) 95%, white 5%)",
@@ -73,7 +73,7 @@ function VisualSlot({ active, render }: { active: boolean; render: (play: boolea
   return <div className="h-[260px] md:h-[340px]">{render(play)}</div>;
 }
 
-// Animated ERP diagram — central hub with 4 satellite modules wiring in
+// Animated ERP diagram with central hub and 4 satellite modules wiring in
 function ErpDiagram({ play }: { play: boolean }) {
   const modules = [
     { label: "Inventory", x: 50, y: 18 },
@@ -146,7 +146,7 @@ function ErpDiagram({ play }: { play: boolean }) {
   );
 }
 
-// Animated ESG diagram — carbon meter sweeping from red to net positive
+// Animated ESG diagram with carbon meter sweeping from red to net positive
 function EsgDiagram({ play }: { play: boolean }) {
   // Arc from -120deg to +120deg (240deg sweep)
   const start = -120;
@@ -214,7 +214,7 @@ function EsgDiagram({ play }: { play: boolean }) {
   );
 }
 
-// Animated bar chart — bars grow one at a time, left to right
+// Animated bar chart where bars grow one at a time, left to right
 function GrowthArea({ play }: { play: boolean }) {
   const W = 100;
   const H = 60;
@@ -428,7 +428,7 @@ function GrowthBars({ play }: { play: boolean }) {
   );
 }
 
-// Animated Agentic AI Sales Assistant — central AI hub with knowledge sources feeding in + chat reply
+// Animated Agentic AI Sales Assistant with central AI hub, knowledge sources, and chat reply
 function ChatAgentDiagram({ play }: { play: boolean }) {
   const sources = [
     { label: "Product DB", y: 22 },
@@ -548,7 +548,7 @@ function ChatAgentDiagram({ play }: { play: boolean }) {
   );
 }
 
-// Animated Invoice 3-Way Match — three docs slide in and lock with a check seal
+// Animated Invoice 3-Way Match where three docs slide in and lock with a check seal
 function InvoiceMatchDiagram({ play }: { play: boolean }) {
   const docs = [
     { label: "INVOICE", x: 14, fromX: -10, delay: 100 },
@@ -626,7 +626,7 @@ function InvoiceMatchDiagram({ play }: { play: boolean }) {
   );
 }
 
-// Animated Email Automation — inbox stack funnels into a sorter that splits to 3 lanes
+// Animated Email Automation where inbox stack funnels into a sorter that splits to 3 lanes
 function EmailFlowDiagram({ play }: { play: boolean }) {
   const lanes = [
     { label: "AUTO-REPLY", y: 30, pct: 62 },
@@ -711,7 +711,7 @@ function EmailFlowDiagram({ play }: { play: boolean }) {
   );
 }
 
-// Animated Logistics GTM — three product lanes moving through four GTM stages
+// Animated Logistics GTM with three product lanes moving through four GTM stages
 const logisticsLanes = [
   { label: "PROD 01", y: 32 },
   { label: "PROD 02", y: 52 },
@@ -823,7 +823,7 @@ function LogisticsGtmDiagram({ play }: { play: boolean }) {
   );
 }
 
-// Animated Omnichannel — five channels converge into a single unified inbox
+// Animated Omnichannel where five channels converge into a single unified inbox
 function OmnichannelDiagram({ play }: { play: boolean }) {
   const channels = [
     { label: "WhatsApp", y: 14 },
@@ -942,7 +942,7 @@ const slides: Slide[] = [
   {
     title: "B2B Sales Team",
     headline: "30 Hours Saved Monthly",
-    body: "Built an agentic AI assistant that answers salespeople's queries on internal product details, pricing, specs and stock — replacing manual lookups across siloed systems with instant, sourced responses delivered in chat.",
+    body: "Built an agentic AI assistant that answers salespeople's queries on internal product details, pricing, specs and stock, replacing manual lookups across siloed systems with instant, sourced responses delivered in chat.",
     timeline: "Project Timeline: 2 Months",
     visual: (play) => <ChatAgentDiagram play={play} />,
   },
@@ -1013,28 +1013,28 @@ const slides: Slide[] = [
   {
     title: "Mid-Market Finance Operation",
     headline: "50 Hours Saved Monthly",
-    body: "Deployed AI-powered PDF parsing and three-way matching across invoices, purchase orders, and goods-received notes — auto-approving clean matches, flagging exceptions, and removing the back-office bottleneck.",
+    body: "Deployed AI-powered PDF parsing and three-way matching across invoices, purchase orders, and goods-received notes, auto-approving clean matches, flagging exceptions, and removing the back-office bottleneck.",
     timeline: "Project Timeline: 3 Months",
     visual: (play) => <InvoiceMatchDiagram play={play} />,
   },
   {
     title: "Logistics Operator",
     headline: "30 Hours Saved Monthly",
-    body: "An LLM-powered triage and reply engine that classifies inbound mail, drafts contextual responses, and routes edge cases to humans — clearing the inbox while the team sleeps.",
+    body: "An LLM-powered triage and reply engine that classifies inbound mail, drafts contextual responses, and routes edge cases to humans, clearing the inbox while the team sleeps.",
     timeline: "Project Timeline: 6 Weeks",
     visual: (play) => <EmailFlowDiagram play={play} />,
   },
   {
     title: "Consumer Brand Customer Care",
     headline: "Unified Customer Outreach",
-    body: "Engineered a single chat platform consolidating WhatsApp, Instagram, Messenger, email, and SMS into one agent workspace — with shared context, SLA tracking, and AI-suggested replies across every channel.",
+    body: "Engineered a single chat platform consolidating WhatsApp, Instagram, Messenger, email, and SMS into one agent workspace, with shared context, SLA tracking, and AI-suggested replies across every channel.",
     timeline: "Project Timeline: 4 Months",
     visual: (play) => <OmnichannelDiagram play={play} />,
   },
   {
     title: "B2B Logistics",
     headline: "3 Products to Market",
-    body: "Defined ICP segments and buyer personas for three distinct logistics products, built lead generation infrastructure, automated outreach sequences, CRM pipeline workflows, and supporting marketing collaterals from scratch — taking each offering from zero market presence to active, measurable commercial motion.",
+    body: "Defined ICP segments and buyer personas for three distinct logistics products, built lead generation infrastructure, automated outreach sequences, CRM pipeline workflows, and supporting marketing collaterals from scratch, then took each offering from zero market presence to active, measurable commercial motion.",
     timeline: "Project Timeline: 4 Months",
     visual: (play) => <LogisticsGtmDiagram play={play} />,
   },

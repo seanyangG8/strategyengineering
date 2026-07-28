@@ -27,7 +27,7 @@ const services = [
     icon: Cpu,
     number: "02",
     title: "Automation & AI",
-    desc: "Agentic AI, automation, and autonomous workflows — engineered to act, adapt, and compound.",
+    desc: "Agentic AI, automation, and autonomous workflows engineered to act, adapt, and compound.",
     tags: ["Agentic AI", "RPA", "Data Pipelines"],
     featured: true,
   },
@@ -49,7 +49,7 @@ const services = [
     icon: Target,
     number: "05",
     title: "GTM Engineering",
-    desc: "Lead generation, automated outreach, marketing collateral systems, CRM architecture, and RevOps — engineered as a system, not a campaign.",
+    desc: "Lead generation, automated outreach, marketing collateral systems, CRM architecture, and RevOps engineered as a system, not a campaign.",
     tags: ["Lead Gen", "RevOps", "Sales Ops"],
   },
 ];
@@ -169,7 +169,7 @@ function Index() {
             </span>
           </h1>
           <p className="mt-8 max-w-2xl mx-auto text-base md:text-lg text-white/70 leading-relaxed animate-fade-up-delay-2">
-            We're the engineers behind the strategy — turning bold ambitions into systems that scale, automate, and outperform.
+            We're the engineers behind the strategy, turning bold ambitions into systems that scale, automate, and outperform.
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4 animate-fade-up-delay-3">
             <MagneticButton
@@ -188,7 +188,7 @@ function Index() {
           </div>
         </div>
 
-        {/* Scroll indicator — hidden on compact screens to avoid hero/trusted-by overlap */}
+        {/* Scroll indicator hidden on compact screens to avoid hero/trusted-by overlap */}
         <button
           type="button"
           aria-label="Scroll to next section"
@@ -258,7 +258,7 @@ function Index() {
       {/* PROCESS STRIP */}
       <ProcessStrip />
 
-      {/* SERVICES — Bento (redesigned) */}
+      {/* Services bento */}
       <section className="bg-surface text-surface-foreground py-28 px-6">
         <div className="mx-auto max-w-7xl">
           <Reveal className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
@@ -269,7 +269,7 @@ function Index() {
               </h2>
             </div>
             <p className="text-muted-foreground max-w-md leading-relaxed">
-              One engineering mindset — applied across process, automation, strategy, sustainability, and growth.
+              One engineering mindset applied across process, automation, strategy, sustainability, and growth.
             </p>
           </Reveal>
 

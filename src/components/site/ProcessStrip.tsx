@@ -9,7 +9,7 @@ const steps = [
   {
     n: "02",
     title: "Design",
-    body: "Engineer the target operating model — process, technology, and accountability — to a measurable outcome.",
+    body: "Engineer the target operating model across process, technology, and accountability for a measurable outcome.",
   },
   {
     n: "03",
@@ -35,7 +35,7 @@ export function ProcessStrip() {
             </h2>
           </div>
           <p className="text-white/60 max-w-md leading-relaxed">
-            A disciplined engineering loop — applied to operations, automation, and strategy alike.
+            A disciplined engineering loop applied to operations, automation, and strategy alike.
           </p>
         </Reveal>
 

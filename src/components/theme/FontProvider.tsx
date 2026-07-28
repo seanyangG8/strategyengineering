@@ -49,5 +49,5 @@ export function useFont() {
   return ctx;
 }
 
-// Inline bootstrap to set font + CSS vars before hydration — prevents FOUC
+// Inline bootstrap to set font + CSS vars before hydration and prevent FOUC
 export const fontBootstrapScript = `(function(){try{localStorage.removeItem('${STORAGE_KEY}');document.documentElement.setAttribute('data-font','jakarta');document.documentElement.style.setProperty('--font-display',"'Plus Jakarta Sans',system-ui,sans-serif");document.documentElement.style.setProperty('--font-sans',"'Plus Jakarta Sans',system-ui,sans-serif");}catch(e){}})();`;

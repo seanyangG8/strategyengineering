@@ -3,7 +3,7 @@ import { Quote } from "lucide-react";
 
 const quotes = [
   {
-    text: "They didn't just hand us a strategy deck — they shipped the automation, trained our team, and we kept the gains.",
+    text: "They didn't just hand us a strategy deck. They shipped the automation, trained our team, and we kept the gains.",
     role: "Operations Director",
     org: "Global FMCG",
   },

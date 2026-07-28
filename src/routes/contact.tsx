@@ -59,7 +59,7 @@ function Contact() {
 
     const trimmedMsg = values.message.trim();
     if (!trimmedMsg) e.message = "Please share a brief message.";
-    else if (trimmedMsg.length < 10) e.message = "A bit more context helps — at least 10 characters.";
+    else if (trimmedMsg.length < 10) e.message = "A bit more context helps. Please enter at least 10 characters.";
     else if (trimmedMsg.length > MAX) e.message = `Message must be under ${MAX} characters.`;
 
     return e;
@@ -124,7 +124,7 @@ function Contact() {
       setErrors({});
       setTouched({});
       setSent(true);
-      toast.success("Message sent — we'll be in touch within one business day.");
+      toast.success("Message sent. We'll be in touch within one business day.");
       setTimeout(() => setSent(false), 6000);
     } catch {
       setSubmitting(false);
@@ -135,9 +135,9 @@ function Contact() {
   return (
     <main>
       <Helmet>
-        <title>Contact — Strategy Engineering</title>
+        <title>Contact | Strategy Engineering</title>
         <meta name="description" content="Let's re-engineer the future. Get in touch with Strategy Engineering." />
-        <meta property="og:title" content="Contact — Strategy Engineering" />
+        <meta property="og:title" content="Contact | Strategy Engineering" />
         <meta property="og:description" content="Let's re-engineer the future." />
         <meta property="og:image" content={heroContact} />
         <meta name="twitter:image" content={heroContact} />
@@ -230,7 +230,7 @@ function Contact() {
             </div>
           </Reveal>
 
-          {/* RIGHT — Form */}
+          {/* Right form */}
           <Reveal delay={120}>
             <p className="eyebrow text-cream-foreground/60 mb-3">// MESSAGE</p>
             <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight mb-3">Tell us what you're solving.</h2>

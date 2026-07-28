@@ -47,5 +47,5 @@ export function useTheme() {
   return ctx;
 }
 
-// Inline script to set theme before hydration — prevents FOUC
+// Inline script to set theme before hydration and prevent FOUC
 export const themeBootstrapScript = `(function(){try{localStorage.removeItem('${STORAGE_KEY}');document.documentElement.setAttribute('data-theme','bronze');}catch(e){document.documentElement.setAttribute('data-theme','bronze');}})();`;

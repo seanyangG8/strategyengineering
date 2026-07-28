@@ -19,7 +19,7 @@ const services = [
     slug: "process",
     title: "Process Improvement",
     tagline: "Optimise. Simplify. Excel.",
-    intro: "We elevate your business operations to their full potential with proven methodologies — Lean Six Sigma, Kaizen, and continuous improvement techniques.",
+    intro: "We elevate your business operations to their full potential with proven methodologies including Lean Six Sigma, Kaizen, and continuous improvement techniques.",
     bullets: [
       { h: "Eliminate inefficiencies", b: "Identify bottlenecks and redundancies in your workflows." },
       { h: "Reduce waste", b: "Enhance environmental and operational sustainability." },
@@ -53,7 +53,7 @@ const services = [
       { v: "5 wks", l: "To first live workflow" },
       { v: "4×", l: "ROI in year one" },
     ],
-    closing: "We help you adopt the right technology — not just the newest — so every investment compounds.",
+    closing: "We help you adopt the right technology, not just the newest option, so every investment compounds.",
   },
   {
     icon: Compass,
@@ -103,13 +103,13 @@ const services = [
     slug: "gtm",
     title: "GTM Engineering",
     tagline: "System first. Revenue follows.",
-    intro: "We help B2B companies engineer the full revenue system — from ICP definition and lead generation infrastructure to automated outreach, CRM architecture, marketing ops, and the pipeline instrumentation that makes every stage measurable and improvable.",
+    intro: "We help B2B companies engineer the full revenue system, from ICP definition and lead generation infrastructure to automated outreach, CRM architecture, marketing ops, and the pipeline instrumentation that makes every stage measurable and improvable.",
     bullets: [
-      { h: "ICP and channel architecture", b: "Define who you're selling to, how you reach them, and what converts — before spending on acquisition." },
+      { h: "ICP and channel architecture", b: "Define who you're selling to, how you reach them, and what converts before spending on acquisition." },
       { h: "CRM build and instrumentation", b: "Clean pipeline stages, deal definitions, lead source attribution, and SLA tracking built into the system from day one." },
       { h: "Revenue and marketing operations", b: "Align marketing, sales, and customer success around shared metrics, handoff criteria, collateral workflows, and a single source of pipeline truth." },
-      { h: "Lead generation and automated outreach", b: "Inbound capture systems, sequenced outbound, and AI-personalised outreach engineered as repeatable, measurable infrastructure — not one-off campaigns." },
-      { h: "Pipeline instrumentation", b: "Deal scoring, stage analytics, attribution modelling, and forecast infrastructure — so leadership always knows where pipeline comes from and what to fix next." },
+      { h: "Lead generation and automated outreach", b: "Inbound capture systems, sequenced outbound, and AI-personalised outreach engineered as repeatable, measurable infrastructure rather than one-off campaigns." },
+      { h: "Pipeline instrumentation", b: "Deal scoring, stage analytics, attribution modelling, and forecast infrastructure, so leadership always knows where pipeline comes from and what to fix next." },
     ],
     outcomes: [
       { v: "3", l: "Products launched" },
@@ -231,9 +231,9 @@ function Services() {
   return (
     <main>
       <Helmet>
-        <title>Services — Strategy Engineering</title>
+        <title>Services | Strategy Engineering</title>
         <meta name="description" content="Process improvement, agentic AI & automation, strategy & transformation, sustainability & impact, and GTM engineering." />
-        <meta property="og:title" content="Services — Strategy Engineering" />
+        <meta property="og:title" content="Services | Strategy Engineering" />
         <meta property="og:description" content="Transforming businesses, one solution at a time." />
         <meta property="og:image" content={heroServices} />
         <meta name="twitter:image" content={heroServices} />
@@ -320,7 +320,7 @@ function Services() {
                             <p className="text-sm leading-relaxed opacity-70">{b.b}</p>
                           </li>
                         ))}
-                        {/* Closing quote — fills the empty grid cell */}
+                        {/* Closing quote fills the empty grid cell */}
                         <li className="bg-primary-flow text-white p-6 relative overflow-hidden flex items-center">
                           <div className="absolute inset-0 opacity-[0.06] bg-grain pointer-events-none" />
                           <div className="relative flex items-start gap-3">

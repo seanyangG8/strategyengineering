@@ -48,7 +48,7 @@
   --card-foreground: oklch(0.18 0.012 50);
   --popover: oklch(0.96 0.012 70);
   --popover-foreground: oklch(0.18 0.012 50);
-  /* Burnt amber / sienna accent — warm, architectural, distinctive */
+  /* Burnt amber / sienna accent with warm architectural character */
   --primary: oklch(0.58 0.06 65);
   --primary-foreground: oklch(0.96 0.012 70);
   --cream: oklch(0.82 0.08 70);
@@ -125,7 +125,7 @@
 
 [data-theme="plum"] {
   /* Deep plum bg + warm terracotta accent (used as HIGHLIGHT only).
-     Cards stay neutral warm off-white — never plum-tinted. */
+     Cards stay neutral warm off-white and never plum-tinted. */
   --background: oklch(0.17 0.035 340);
   --foreground: oklch(0.95 0.012 30);
   --surface: oklch(0.965 0.008 60);
@@ -202,7 +202,7 @@
 
 [data-theme="lime"] {
   /* Near-neutral charcoal bg + cool light-gray cream + vivid lime (#5FED83)
-     accent. Black-and-white base, single saturated highlight — like Crimson. */
+     accent. Black-and-white base with a single saturated highlight like Crimson. */
   --background: oklch(0.14 0.005 145);
   --foreground: oklch(0.97 0 0);
   --surface: oklch(0.97 0.003 100);
@@ -227,7 +227,7 @@
 }
 
 [data-theme="mono"] {
-  /* True monochrome — black + white + grayscale only.
+  /* True monochrome with black, white, and grayscale only.
      Primary is a mid-gray that works as subtle accent on both dark bg and light cards.
      A single hairline of warm tone keeps it from feeling clinical. */
   --background: oklch(0.13 0 0);
@@ -238,7 +238,7 @@
   --card-foreground: oklch(0.13 0 0);
   --popover: oklch(0.97 0 0);
   --popover-foreground: oklch(0.13 0 0);
-  /* Primary = warm graphite — readable on both white cards and dark bg */
+  /* Primary = warm graphite readable on both white cards and dark bg */
   --primary: oklch(0.55 0.005 60);
   --primary-foreground: oklch(0.97 0 0);
   --cream: oklch(0.94 0 0);
@@ -254,7 +254,7 @@
   --ring: oklch(0.55 0.005 60);
 }
 
-/* Smooth swap when the user changes themes — applies to most surfaces */
+/* Smooth swap when the user changes themes, applied to most surfaces */
 html { transition: background-color 280ms ease, color 280ms ease; }
 body, header, footer, section, article, aside, nav, main,
 [class*="bg-background"], [class*="bg-card"], [class*="bg-surface"],
@@ -281,7 +281,7 @@ body, header, footer, section, article, aside, nav, main,
   animation: primary-flow 12s ease-in-out infinite;
 }
 
-/* High-chroma themes (mint, lime) — keep featured surfaces near-neutral charcoal,
+/* High-chroma themes (mint, lime) keep featured surfaces near-neutral charcoal,
    with only a whisper of primary so green stays a typographic accent, not wallpaper. */
 [data-theme="mint"] .bg-primary-flow,
 [data-theme="mint"] .bg-bronze-flow,
@@ -311,7 +311,7 @@ body, header, footer, section, article, aside, nav, main,
   }
   h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); font-weight: 600; letter-spacing: -0.02em; }
 
-  /* Visible keyboard focus across the app — bronze ring with offset */
+  /* Visible keyboard focus across the app with bronze ring and offset */
   :focus { outline: none; }
   :focus-visible {
     outline: 2px solid var(--primary);
@@ -423,7 +423,7 @@ body, header, footer, section, article, aside, nav, main,
   }
   .animate-scroll-dot { animation: scroll-dot 1.8s cubic-bezier(0.65, 0, 0.35, 1) infinite; }
 
-  /* Subtle film grain — applied as overlay via pseudo / element */
+  /* Subtle film grain applied as overlay via pseudo / element */
   .bg-grain {
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
     background-size: 160px 160px;

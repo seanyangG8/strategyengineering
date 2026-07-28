@@ -16,7 +16,7 @@ export const Route = createFileRoute("/about")({
 });
 
 const team = [
-  { name: "Sean Goh", role: "Senior Business Process Manager", edu: "MEng Electrical & Electronic Engineering", quote: "Most processes don't need transforming — they need engineering.", photo: seanGoh, linkedin: "https://www.linkedin.com/in/seanygoh/" },
+  { name: "Sean Goh", role: "Senior Business Process Manager", edu: "MEng Electrical & Electronic Engineering", quote: "Most processes don't need transforming. They need engineering.", photo: seanGoh, linkedin: "https://www.linkedin.com/in/seanygoh/" },
   { name: "Nadzim Zahari", role: "Senior Sustainability Manager", edu: "BSc Economics & Finance", quote: "Sustainability that ignores the P&L gets ignored. Period.", photo: nadzim, linkedin: "https://www.linkedin.com/in/nadzimzahari/" },
   { name: "Jon Quah", role: "Business Development Head", edu: "BSc Civil Engineering", quote: "Build the bridge before you sell the crossing.", photo: jonQuah, linkedin: "https://www.linkedin.com/in/jonathan-q-1917b3125/" },
   { name: "Sean Morais", role: "Lead Design Engineer", edu: "MEng Astronautics Engineering", quote: "If it can't be measured, it probably can't be fixed.", photo: seanMorais, linkedin: "https://www.linkedin.com/in/smmorais/" },
@@ -26,7 +26,7 @@ const values = [
   { word: "Precision", def: "Every recommendation backed by data, every deliverable engineered to spec." },
   { word: "Pragmatism", def: "We ship what works in your business, not what looks good in a deck." },
   { word: "Ownership", def: "We're accountable for outcomes, not just effort or attendance." },
-  { word: "Outcomes", def: "Success is measured in margin, time, and capability — never in slides." },
+  { word: "Outcomes", def: "Success is measured in margin, time, and capability, never in slides." },
 ];
 
 const pillars = [
@@ -35,19 +35,19 @@ const pillars = [
     eyebrow: "OUR MISSION",
     title: "Built for impact.",
     body: '"We unlock the full potential of businesses with practical, sustainable, engineered solutions."',
-    body2: "We bring an engineering mindset — focused on precision, efficiency, and scalability — to every challenge we tackle. Potential alone isn't enough. It's about transforming ambition into measurable results.",
+    body2: "We bring an engineering mindset focused on precision, efficiency, and scalability to every challenge we tackle. Potential alone isn't enough. It's about transforming ambition into measurable results.",
   },
   {
     n: "02",
     eyebrow: "WHY WE'RE DIFFERENT",
     title: "Engineering solutions for real-world challenges.",
-    body: "With a foundation in engineering and a deep understanding of business operations, we design solutions that are visionary, actionable, and impactful — not just slide-deck strategy.",
+    body: "With a foundation in engineering and a deep understanding of business operations, we design solutions that are visionary, actionable, and impactful, not just slide-deck strategy.",
   },
   {
     n: "03",
     eyebrow: "WHY CHOOSE US",
     title: "Built on strong foundations.",
-    body: "We're not just consultants — we're builders. With expertise in engineering, strategy, and innovation, we're uniquely equipped to tackle the toughest challenges and unlock the greatest opportunities.",
+    body: "We're not just consultants. We're builders. With expertise in engineering, strategy, and innovation, we're uniquely equipped to tackle the toughest challenges and unlock the greatest opportunities.",
   },
 ];
 
@@ -109,9 +109,9 @@ function About() {
   return (
     <main>
       <Helmet>
-        <title>About — Strategy Engineering</title>
+        <title>About | Strategy Engineering</title>
         <meta name="description" content="Where engineering meets business. Built for impact." />
-        <meta property="og:title" content="About — Strategy Engineering" />
+        <meta property="og:title" content="About | Strategy Engineering" />
         <meta property="og:description" content="Where engineering meets business." />
         <meta property="og:image" content={lightbulb} />
         <meta name="twitter:image" content={lightbulb} />
@@ -124,7 +124,7 @@ function About() {
         <div className="absolute inset-0 opacity-[0.025] bg-grain pointer-events-none" />
         <div className="mx-auto max-w-6xl relative">
           <div className="relative" ref={railRef}>
-            {/* Timeline rail — bounded between first and last dot */}
+            {/* Timeline rail bounded between first and last dot */}
             <div
               className="absolute left-[10px] md:left-[7.5rem] w-px bg-cream-foreground/10"
               aria-hidden
