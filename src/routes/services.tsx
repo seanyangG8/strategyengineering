@@ -202,8 +202,8 @@ function StickyServiceNav() {
       </aside>
 
       {/* Mobile/tablet: sticky top bar with progress */}
-      <div className="lg:hidden sticky top-[68px] z-30 -mx-6 px-6 pt-3 pb-2 bg-surface/95 backdrop-blur-md border-y border-cream-foreground/10 mb-10">
-        <div className="flex gap-5 overflow-x-auto no-scrollbar font-mono text-[11px] tracking-wider mb-2">
+      <div className="lg:hidden sticky top-[68px] z-30 -mx-4 sm:-mx-6 px-4 sm:px-6 pt-3 pb-2 bg-surface/95 backdrop-blur-md border-y border-cream-foreground/10 mb-8">
+        <div className="flex max-w-full gap-5 overflow-x-auto no-scrollbar font-mono text-[11px] tracking-wider mb-2">
           {services.map((s) => (
             <a
               key={s.number}
@@ -241,11 +241,11 @@ function Services() {
       </Helmet>
       <PageHero eyebrow="TRANSFORMING BUSINESSES, ONE SOLUTION AT A TIME" title="Services" backgroundImage={heroServices} objectPosition="center 100%" compact />
 
-      <section className="bg-surface text-surface-foreground py-24 px-6 relative overflow-hidden">
-        <div className="mx-auto max-w-7xl grid lg:grid-cols-[220px_1fr] gap-16">
+      <section className="bg-surface text-surface-foreground py-14 sm:py-18 lg:py-24 px-4 sm:px-6 relative overflow-hidden">
+        <div className="mx-auto max-w-7xl grid grid-cols-[minmax(0,1fr)] lg:grid-cols-[220px_minmax(0,1fr)] gap-10 lg:gap-16">
           <StickyServiceNav />
 
-          <div className="space-y-32 lg:space-y-40">
+          <div className="min-w-0 space-y-24 sm:space-y-28 lg:space-y-40">
             {services.map((s, i) => {
               const Icon = s.icon;
               const reverse = i % 2 === 1;
@@ -254,7 +254,7 @@ function Services() {
                   key={s.title}
                   id={`service-${s.number}`}
                   data-num={s.number}
-                  className="scroll-mt-32 relative"
+                  className="scroll-mt-32 relative min-w-0"
                 >
                   {/* Oversized backdrop number */}
                   <div
@@ -266,32 +266,32 @@ function Services() {
                     {s.number}
                   </div>
 
-                  <div className={`relative grid md:grid-cols-12 gap-10 ${reverse ? "md:[&>*:first-child]:order-2" : ""}`}>
+                  <div className={`relative grid grid-cols-[minmax(0,1fr)] md:grid-cols-12 gap-8 md:gap-10 min-w-0 ${reverse ? "md:[&>*:first-child]:order-2" : ""}`}>
                     {/* Header column */}
-                    <Reveal className="md:col-span-5">
+                    <Reveal className="min-w-0 md:col-span-5">
                       <div className="w-14 h-14 rounded-2xl border border-cream-foreground/10 flex items-center justify-center bg-background text-primary mb-6">
                         <Icon className="size-6" strokeWidth={1.5} />
                       </div>
                       <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-primary mb-3">
                         {s.number} · {s.tagline}
                       </p>
-                      <h2 className="font-display text-4xl md:text-5xl font-medium tracking-tight mb-6">{s.title}</h2>
+                      <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight mb-5 md:mb-6 break-words">{s.title}</h2>
                       <p className="text-muted-foreground leading-relaxed mb-8">{s.intro}</p>
 
                       <div className="grid grid-cols-3 gap-px bg-cream-foreground/10 rounded-xl overflow-hidden border border-cream-foreground/10">
                         {s.outcomes.map((o) => (
-                          <div key={o.l} className="bg-surface p-4 text-center">
-                            <p className="font-display text-2xl md:text-3xl font-medium text-primary tracking-tight">
+                          <div key={o.l} className="bg-surface px-2 py-4 sm:p-4 text-center min-w-0">
+                            <p className="font-display text-xl sm:text-2xl md:text-3xl font-medium text-primary tracking-tight">
                               <CountUpText value={o.v} />
                             </p>
-                            <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-cream-foreground/60 mt-1.5">{o.l}</p>
+                            <p className="font-mono text-[8px] sm:text-[9px] uppercase tracking-[0.12em] sm:tracking-[0.18em] text-cream-foreground/60 mt-1.5 leading-snug">{o.l}</p>
                           </div>
                         ))}
                       </div>
                     </Reveal>
 
                     {/* Bullets column */}
-                    <Reveal delay={120} className="md:col-span-7">
+                    <Reveal delay={120} className="min-w-0 md:col-span-7">
                       <ul className="grid sm:grid-cols-2 gap-px bg-cream-foreground/10 rounded-2xl overflow-hidden border border-cream-foreground/10">
                         {s.bullets.map((b, idx) => (
                           <li
