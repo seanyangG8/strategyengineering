@@ -271,7 +271,7 @@ function Contact() {
                     <option value="automation">Automation & AI</option>
                     <option value="strategy">Strategy & Transformation</option>
                     <option value="sustainability">Sustainability & Impact</option>
-                    <option value="gtm">Go-to-Market</option>
+                    <option value="gtm">GTM Engineering</option>
                     <option value="unsure">Not sure yet</option>
                   </select>
                   <label htmlFor="contact-interest">I'm interested in…</label>

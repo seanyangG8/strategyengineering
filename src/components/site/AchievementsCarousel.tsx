@@ -720,8 +720,8 @@ const logisticsLanes = [
 
 const gtmStages = [
   { label: "ICP", x: 40 },
-  { label: "OUTBD", x: 56 },
-  { label: "SQL", x: 72 },
+  { label: "OUTREACH", x: 56 },
+  { label: "PIPELINE", x: 72 },
   { label: "CLOSED", x: 88 },
 ];
 
@@ -1034,7 +1034,7 @@ const slides: Slide[] = [
   {
     title: "B2B Logistics",
     headline: "3 Products to Market",
-    body: "Defined ICP segments and buyer personas for three distinct logistics products, built outbound playbooks from scratch, and generated qualified pipeline — taking three offerings from zero market presence to active commercial motion.",
+    body: "Defined ICP segments and buyer personas for three distinct logistics products, built lead generation infrastructure, automated outreach sequences, CRM pipeline workflows, and supporting marketing collaterals from scratch — taking each offering from zero market presence to active, measurable commercial motion.",
     timeline: "Project Timeline: 4 Months",
     visual: (play) => <LogisticsGtmDiagram play={play} />,
   },

@@ -48,9 +48,9 @@ const services = [
   {
     icon: Target,
     number: "05",
-    title: "Go-to-Market",
-    desc: "GTM systems, CRM architecture, RevOps, and sales motions that turn products into measurable pipeline.",
-    tags: ["RevOps", "CRM", "Sales Ops"],
+    title: "GTM Engineering",
+    desc: "Lead generation, automated outreach, marketing collateral systems, CRM architecture, and RevOps — engineered as a system, not a campaign.",
+    tags: ["Lead Gen", "RevOps", "Sales Ops"],
   },
 ];
 

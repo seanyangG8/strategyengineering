@@ -101,15 +101,15 @@ const services = [
     icon: Target,
     number: "05",
     slug: "gtm",
-    title: "Go-to-Market",
+    title: "GTM Engineering",
     tagline: "System first. Revenue follows.",
-    intro: "We help B2B companies engineer the systems that turn a product into a pipeline — ICP definition, CRM architecture, outbound motion, and the measurement layer that makes it all visible and improvable.",
+    intro: "We help B2B companies engineer the full revenue system — from ICP definition and lead generation infrastructure to automated outreach, CRM architecture, marketing ops, and the pipeline instrumentation that makes every stage measurable and improvable.",
     bullets: [
       { h: "ICP and channel architecture", b: "Define who you're selling to, how you reach them, and what converts — before spending on acquisition." },
       { h: "CRM build and instrumentation", b: "Clean pipeline stages, deal definitions, lead source attribution, and SLA tracking built into the system from day one." },
-      { h: "Revenue operations", b: "Align marketing, sales, and customer success around shared metrics, handoff criteria, and a single source of pipeline truth." },
-      { h: "Outbound and sales process", b: "Qualification frameworks, outreach cadences, discovery scripts, and follow-up architecture — tested and iterable." },
-      { h: "GTM diagnostics", b: "Audit the existing funnel, find the conversion leaks, and prioritise the highest-leverage fixes before scaling spend." },
+      { h: "Revenue and marketing operations", b: "Align marketing, sales, and customer success around shared metrics, handoff criteria, collateral workflows, and a single source of pipeline truth." },
+      { h: "Lead generation and automated outreach", b: "Inbound capture systems, sequenced outbound, and AI-personalised outreach engineered as repeatable, measurable infrastructure — not one-off campaigns." },
+      { h: "Pipeline instrumentation", b: "Deal scoring, stage analytics, attribution modelling, and forecast infrastructure — so leadership always knows where pipeline comes from and what to fix next." },
     ],
     outcomes: [
       { v: "3", l: "Products launched" },
@@ -232,7 +232,7 @@ function Services() {
     <main>
       <Helmet>
         <title>Services — Strategy Engineering</title>
-        <meta name="description" content="Process improvement, agentic AI & automation, strategy & transformation, sustainability & impact, and go-to-market systems." />
+        <meta name="description" content="Process improvement, agentic AI & automation, strategy & transformation, sustainability & impact, and GTM engineering." />
         <meta property="og:title" content="Services — Strategy Engineering" />
         <meta property="og:description" content="Transforming businesses, one solution at a time." />
         <meta property="og:image" content={heroServices} />
