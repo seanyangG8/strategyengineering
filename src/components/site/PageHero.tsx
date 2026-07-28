@@ -39,8 +39,8 @@ export function PageHero({
       <Header />
       <div className="relative z-10 text-center px-6 pt-24 max-w-4xl">
         {eyebrow && (
-          <p className="eyebrow text-white/85 drop-shadow-[0_1px_12px_rgba(0,0,0,0.45)] mb-5 animate-fade-up">
-            <span className="text-primary">//</span> {eyebrow}
+          <p className="eyebrow hero-eyebrow mb-5 animate-fade-up">
+            <span className="hero-eyebrow-accent">//</span> {eyebrow}
           </p>
         )}
         <h1 className="font-display text-5xl md:text-7xl font-medium text-white tracking-tight leading-[0.95] animate-fade-up-delay-1">

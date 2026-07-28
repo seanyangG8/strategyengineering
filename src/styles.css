@@ -353,6 +353,13 @@ body, header, footer, section, article, aside, nav, main,
     text-transform: uppercase;
     font-weight: 500;
   }
+  .hero-eyebrow {
+    color: oklch(0.86 0.018 70);
+    text-shadow: 0 1px 14px rgb(0 0 0 / 0.55);
+  }
+  .hero-eyebrow-accent {
+    color: var(--primary);
+  }
   .story-link {
     position: relative;
     display: inline-block;

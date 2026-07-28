@@ -146,7 +146,9 @@ function Index() {
         <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/55 to-background" />
         <Header />
         <div className="relative z-10 text-center px-6 max-w-5xl pb-32 md:pb-0">
-          <p className="eyebrow text-primary mb-6 animate-fade-up">// UNLOCKING POTENTIAL</p>
+          <p className="eyebrow hero-eyebrow mb-6 animate-fade-up">
+            <span className="hero-eyebrow-accent">//</span> UNLOCKING POTENTIAL
+          </p>
           <h1 className="font-display text-[40px] sm:text-5xl md:text-7xl lg:text-8xl font-medium text-white leading-[0.95] tracking-tight">
             {["Your", "ambition."].map((w, i) => (
               <span key={`a-${i}`} className="word-rise-wrap mr-[0.25em]">
