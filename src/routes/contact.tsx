@@ -18,11 +18,23 @@ const nextSteps = [
   { n: "03", title: "Tailored proposal", body: "Clear scope, timeline, and outcomes. No template decks." },
 ];
 
+const CONTACT_EMAIL = "contact@strategyengineering.co";
+
+const composeUrl = (subject: string, body = "") => {
+  const params = new URLSearchParams({
+    view: "cm",
+    fs: "1",
+    to: CONTACT_EMAIL,
+    su: subject,
+  });
+  if (body) params.set("body", body);
+  return `https://mail.google.com/mail/?${params.toString()}`;
+};
+
 type FieldErrors = { name?: string; email?: string; message?: string };
 
 function Contact() {
   const [submitting, setSubmitting] = useState(false);
-  const [sent, setSent] = useState(false);
   const [interest, setInterest] = useState("");
   const [message, setMessage] = useState("");
   const [name, setName] = useState("");
@@ -59,12 +71,12 @@ function Contact() {
   const onCopy = async (e: React.MouseEvent) => {
     e.preventDefault();
     try {
-      await navigator.clipboard.writeText("contact@strategyengineering.co");
+      await navigator.clipboard.writeText(CONTACT_EMAIL);
       setCopied(true);
       toast.success("Email copied to clipboard");
       setTimeout(() => setCopied(false), 1800);
     } catch {
-      window.location.href = "mailto:contact@strategyengineering.co";
+      window.location.href = `mailto:${CONTACT_EMAIL}`;
     }
   };
 
@@ -78,9 +90,20 @@ function Contact() {
       return;
     }
     setSubmitting(true);
+    const emailBody = [
+      `Name: ${name.trim()}`,
+      `Email: ${email.trim()}`,
+      website.trim() ? `Company website: ${website.trim()}` : null,
+      interest ? `Interest: ${interest}` : null,
+      "",
+      message.trim(),
+    ].filter(Boolean).join("\n");
+    const opened = window.open(composeUrl("New Strategy Engineering enquiry", emailBody), "_blank", "noopener,noreferrer");
+    if (!opened) {
+      window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("New Strategy Engineering enquiry")}&body=${encodeURIComponent(emailBody)}`;
+    }
     setTimeout(() => {
       setSubmitting(false);
-      setSent(true);
       (e.target as HTMLFormElement).reset();
       setName("");
       setEmail("");
@@ -89,8 +112,7 @@ function Contact() {
       setMessage("");
       setErrors({});
       setTouched({});
-      toast.success("Message sent — we'll be in touch within one business day.");
-      setTimeout(() => setSent(false), 6000);
+      toast.success("Email draft opened — please send it from your mail app.");
     }, 700);
   };
 
@@ -116,8 +138,10 @@ function Contact() {
 
             <div className="group relative rounded-2xl border border-cream-foreground/10 p-6 hover:border-primary/60 hover:bg-background hover:text-white transition-all mb-4">
               <a
-                href="mailto:contact@strategyengineering.co"
-                aria-label="Email contact@strategyengineering.co"
+                href={composeUrl("Strategy Engineering enquiry")}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Email ${CONTACT_EMAIL}`}
                 className="absolute inset-0 rounded-2xl"
               />
               <div className="relative flex items-center justify-between gap-4 pointer-events-none">
@@ -125,7 +149,7 @@ function Contact() {
                   <p className="eyebrow text-primary mb-2 flex items-center gap-2">
                     <Mail className="size-3.5" /> EMAIL US
                   </p>
-                  <p className="font-display text-xl font-medium tracking-tight truncate">contact@strategyengineering.co</p>
+                  <p className="font-display text-xl font-medium tracking-tight truncate">{CONTACT_EMAIL}</p>
                   <p className="text-xs mt-2 opacity-60">We reply within one business day.</p>
                 </div>
                 <div className="flex items-center gap-2 shrink-0 pointer-events-auto">
@@ -143,7 +167,9 @@ function Contact() {
             </div>
 
             <a
-              href="mailto:contact@strategyengineering.co?subject=30-min%20discovery%20call"
+              href={composeUrl("30-min discovery call")}
+              target="_blank"
+              rel="noopener noreferrer"
               className="block group rounded-2xl border border-cream-foreground/10 p-6 hover:border-primary/60 hover:bg-background hover:text-white transition-all mb-8"
             >
               <div className="flex items-center justify-between">
@@ -195,23 +221,7 @@ function Contact() {
             <p className="text-muted-foreground mb-10">We believe in understanding your unique needs before taking the next step.</p>
 
             <div className="relative">
-              {/* Success overlay */}
-              <div
-                className={`absolute inset-0 z-10 flex flex-col items-center justify-center text-center bg-surface/95 backdrop-blur-sm rounded-2xl transition-all duration-500 ${
-                  sent ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-                }`}
-              >
-                {sent && (
-                  <svg viewBox="0 0 80 80" className="w-20 h-20 mb-6">
-                    <circle cx="40" cy="40" r="36" fill="none" stroke="var(--primary)" strokeWidth="2" className="circle-path" />
-                    <path d="M26 41 L36 51 L55 30" fill="none" stroke="var(--primary)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="check-path" />
-                  </svg>
-                )}
-                <h3 className="font-display text-2xl font-medium tracking-tight mb-2">Message sent.</h3>
-                <p className="text-sm text-muted-foreground max-w-xs">We'll be in touch within one business day.</p>
-              </div>
-
-              <form onSubmit={onSubmit} noValidate className={`space-y-2 transition-opacity duration-300 ${sent ? "opacity-30" : "opacity-100"}`}>
+              <form onSubmit={onSubmit} noValidate className="space-y-2 transition-opacity duration-300">
                 <div className={`float-field ${touched.name && errors.name ? "field-error" : ""}`}>
                   <input
                     id="contact-name"
@@ -321,7 +331,6 @@ function Contact() {
                   >
                     {submitting ? "Sending…" : "Send message"}
                     {submitting ? null : <ArrowUpRight className="size-4 group-hover:rotate-45 transition-transform" />}
-                    {sent && <Check className="size-4" />}
                   </MagneticButton>
                 </div>
               </form>
