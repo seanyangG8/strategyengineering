@@ -7,6 +7,13 @@ import { toast } from "sonner";
 import heroContact from "@/assets/hero-contact.webp";
 import { Reveal } from "@/components/motion/Reveal";
 import { MagneticButton } from "@/components/motion/MagneticButton";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export const Route = createFileRoute("/contact")({
   component: Contact,
@@ -300,30 +307,28 @@ function Contact() {
                   />
                   <label htmlFor="contact-website">Company website</label>
                 </div>
-                <div className="float-field float-field-select">
-                  <select
-                    id="contact-interest"
-                    name="interest"
+                <div className="float-field contact-select-field">
+                  <label id="contact-interest-label" className={interest ? "is-raised" : ""}>I'm interested in…</label>
+                  <Select
                     value={interest}
-                    onChange={(e) => setInterest(e.target.value)}
-                    className={interest ? "has-value" : ""}
+                    onValueChange={setInterest}
                   >
-                    <option value="" disabled hidden></option>
-                    <option value="process">Process Improvement</option>
-                    <option value="automation">Automation & AI</option>
-                    <option value="strategy">Strategy & Transformation</option>
-                    <option value="sustainability">Sustainability & Impact</option>
-                    <option value="gtm">GTM Engineering</option>
-                    <option value="unsure">Not sure yet</option>
-                  </select>
-                  <label htmlFor="contact-interest">I'm interested in…</label>
-                  <svg
-                    aria-hidden
-                    viewBox="0 0 12 8"
-                    className="pointer-events-none absolute right-1 bottom-3 w-3 h-2 opacity-60"
-                  >
-                    <path d="M1 1.5l5 5 5-5" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                    <SelectTrigger
+                      id="contact-interest"
+                      aria-labelledby="contact-interest-label"
+                      className="contact-select-trigger"
+                    >
+                      <SelectValue placeholder="" />
+                    </SelectTrigger>
+                    <SelectContent className="contact-select-content">
+                      <SelectItem value="process">Process Improvement</SelectItem>
+                      <SelectItem value="automation">Automation & AI</SelectItem>
+                      <SelectItem value="strategy">Strategy & Transformation</SelectItem>
+                      <SelectItem value="sustainability">Sustainability & Impact</SelectItem>
+                      <SelectItem value="gtm">GTM Engineering</SelectItem>
+                      <SelectItem value="unsure">Not sure yet</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
                 <div className={`float-field ${touched.message && errors.message ? "field-error" : ""}`}>
                   <textarea

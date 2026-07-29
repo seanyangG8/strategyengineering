@@ -502,6 +502,69 @@ body, header, footer, section, article, aside, nav, main,
     font-family: var(--font-mono);
   }
 
+  .contact-select-field {
+    padding-top: 0.45rem;
+  }
+  .contact-select-field label {
+    top: 1.85rem;
+    z-index: 1;
+  }
+  .contact-select-field:focus-within label,
+  .contact-select-field label.is-raised {
+    transform: translateY(-1.25rem);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--primary);
+    font-family: var(--font-mono);
+  }
+  .contact-select-trigger {
+    height: auto;
+    min-height: 3.9rem;
+    border: 0;
+    border-bottom: 1px solid color-mix(in oklab, currentColor 18%, transparent);
+    border-radius: 0;
+    background: transparent;
+    padding: 1.5rem 0 0.6rem;
+    color: inherit;
+    box-shadow: none;
+  }
+  .contact-select-trigger:hover {
+    border-bottom-color: color-mix(in oklab, var(--primary) 55%, transparent);
+  }
+  .contact-select-trigger:focus,
+  .contact-select-trigger[data-state="open"] {
+    border-bottom-color: var(--primary);
+    box-shadow: 0 1px 0 0 var(--primary);
+  }
+  .contact-select-trigger > span {
+    font-size: 0.95rem;
+  }
+  .contact-select-trigger svg {
+    color: var(--primary);
+    opacity: 0.75;
+  }
+  .contact-select-content {
+    z-index: 1000;
+    border-color: color-mix(in oklab, var(--primary) 22%, transparent);
+    border-radius: 0.75rem;
+    background: var(--surface);
+    color: var(--surface-foreground);
+    box-shadow: 0 24px 60px color-mix(in oklab, black 28%, transparent);
+  }
+  .contact-select-content [role="option"] {
+    border-radius: 0.5rem;
+    padding-top: 0.65rem;
+    padding-bottom: 0.65rem;
+  }
+  .contact-select-content [role="option"][data-highlighted] {
+    background: color-mix(in oklab, var(--primary) 16%, transparent);
+    color: var(--surface-foreground);
+  }
+  .contact-select-content [role="option"][data-state="checked"] {
+    color: var(--primary);
+  }
+
   /* Field-level validation feedback */
   .float-field.field-error input,
   .float-field.field-error textarea {
