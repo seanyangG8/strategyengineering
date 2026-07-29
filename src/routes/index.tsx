@@ -215,7 +215,7 @@ function Index() {
             <div className="flex overflow-x-auto no-scrollbar -mx-6 px-6">
               {trustedBy.map((name, i) => (
                 <span key={name} className="flex items-center">
-                  <span className="whitespace-nowrap border-b border-primary/25 pb-1.5 font-mono text-[10px] tracking-[0.22em] text-white/55">
+                  <span className="whitespace-nowrap pb-1.5 font-mono text-[10px] tracking-[0.22em] text-white/55">
                     {name}
                   </span>
                   {i < trustedBy.length - 1 && (
@@ -233,7 +233,7 @@ function Index() {
                 {trustedBy.map((name) => (
                   <div
                     key={name}
-                    className="px-4 py-2 border-b border-primary/15 flex items-center justify-center text-center font-mono text-[10px] tracking-[0.22em] text-white/45 hover:border-primary/30 hover:text-white/85 transition-colors"
+                    className="px-4 py-2 flex items-center justify-center text-center font-mono text-[10px] tracking-[0.22em] text-white/45 hover:text-white/85 transition-colors"
                   >
                     {name}
                   </div>
