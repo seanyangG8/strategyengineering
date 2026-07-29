@@ -259,14 +259,14 @@ function Services() {
                   {/* Oversized backdrop number */}
                   <div
                     aria-hidden
-                    className={`pointer-events-none absolute -top-8 md:-top-12 ${
+                    className={`pointer-events-none absolute -top-12 z-0 hidden md:block ${
                       reverse ? "right-0" : "left-0"
-                    } font-display text-[120px] sm:text-[180px] md:text-[260px] font-light leading-none text-cream-foreground/[0.05] select-none`}
+                    } font-display text-[260px] font-light leading-none text-cream-foreground/[0.05] select-none`}
                   >
                     {s.number}
                   </div>
 
-                  <div className={`relative grid grid-cols-[minmax(0,1fr)] md:grid-cols-12 gap-8 md:gap-10 min-w-0 ${reverse ? "md:[&>*:first-child]:order-2" : ""}`}>
+                  <div className={`relative z-10 grid grid-cols-[minmax(0,1fr)] md:grid-cols-12 gap-8 md:gap-10 min-w-0 ${reverse ? "md:[&>*:first-child]:order-2" : ""}`}>
                     {/* Header column */}
                     <Reveal className="min-w-0 md:col-span-5">
                       <div className="w-14 h-14 rounded-2xl border border-cream-foreground/10 flex items-center justify-center bg-background text-primary mb-6">
